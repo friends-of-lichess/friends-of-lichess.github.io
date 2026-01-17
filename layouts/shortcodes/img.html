@@ -1,0 +1,36 @@
+{{ $src := .Get "src" }}
+{{ $alt := .Get "alt" | default $src }}
+{{ $caption := .Get "caption" }}
+
+{{/* Find the image resource */}}
+{{ $img := .Page.Resources.GetMatch $src }}
+{{ if not $img }}
+  {{ $img = resources.Get $src }}
+{{ end }}
+
+{{ if $img }}
+  {{/* Define the widths you want to generate */}}
+  {{ $widths := slice 480 720 1080 1500 }}
+  
+  <figure>
+    <img
+      style="width: 100%; height: auto;"
+      src="{{ ($img.Resize "1080x").RelPermalink }}"
+      {{ if ge $img.Width 480 }}
+        srcset="
+        {{ range $i, $w := $widths }}
+          {{ if ge $img.Width $w }}
+            {{ if $i }}, {{ end }}{{ ($img.Resize (printf "%dx" $w)).RelPermalink }} {{ $w }}w
+          {{ end }}
+        {{ end }}"
+        sizes="(min-width: 1200px) 1000px, 100vw"
+      {{ end }}
+      alt="{{ $alt }}"
+      loading="lazy"
+      width="{{ $img.Width }}"
+      height="{{ $img.Height }}">
+    {{ with $caption }}<figcaption>{{ . }}</figcaption>{{ end }}
+  </figure>
+{{ else }}
+  <p style="color:red;">Image not found: {{ $src }}</p>
+{{ end }}
