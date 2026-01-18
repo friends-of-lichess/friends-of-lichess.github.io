@@ -1,8 +1,10 @@
 <footer class="bg-very-light-gray bottom-0 w-100 pa3" role="contentinfo">
-  <div class="flex justify-between">
+  <div class="flex flex-column-m justify-between items-center">
   <a class="f4 fw4 hover-purple mid-gray dn dib-ns pv2 ph3 no-underline" href="{{ .Site.Home.Permalink }}" >
     &copy; {{ with .Site.Copyright | compare.Default .Site.Title }} {{ . | safe.HTML }} {{ now.Format "2006"}} {{ end }}
-  </a>
     <div>{{ partial "social/follow.html" . }}</div>
+  </a>
+  <div class="mid-gray dn dib-ns pv2 ph3">
+    A 501(c)(3) organization | EIN 33-1496513
   </div>
 </footer>

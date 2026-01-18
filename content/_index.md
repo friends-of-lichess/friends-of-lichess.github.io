@@ -4,7 +4,7 @@ description: "Promoting libre, open-source online chess for educational and comp
 featured_image: "/images/king.jpg"
 ---
 
-Friends of Lichess is a non-profit organization dedicated to supporting the Lichess ecosystem. We believe that everyone should have access to high-quality chess tools and resources, forever, without barriers.
+Friends of Lichess is a 501(c)(3) non-profit organization dedicated to supporting the Lichess ecosystem. We believe that everyone should have access to high-quality chess tools and resources, forever, without barriers.
 
 ## Our Mission
 
