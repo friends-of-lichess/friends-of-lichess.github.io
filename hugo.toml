@@ -16,11 +16,20 @@ theme = 'ananke'
     name = 'Contact'
     pageRef = '/contact'
     weight = 30
+  [[menu.main]]
+    name = 'Donate'
+    pageRef = '/donate'
+    weight = 40
 
 [params]
   background_color_class = "bg-dark-purple"
   [params.ananke]
     show_recent_posts = false
+  # Stripe identifiers are public by design (publishable key, not secret key).
+  [params.donate]
+    stripe_payment_link = "https://donate.stripe.com/fZu5kC5a6ab82xj3i1cjS00"
+    stripe_buy_button_id = "buy_btn_1UGSIFCjqxnM41Pr1JlBOAbC"
+    stripe_publishable_key = "pk_live_51UGRGWCjqxnM41Prd8TAIGsZdApJuVMUN329xrD1i88WZFn0A5XWEcgVgMgKy7OxTuQQLG1jTK9dPdKnjDBXKksi00PciO45Ab"
 
 [caches]
   [caches.images]

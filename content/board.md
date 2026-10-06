@@ -2,7 +2,7 @@
 title: "Board of Directors"
 ---
 
-Our board is composed of dedicated individuals from the chess and open-source communities.
+Our board is composed of dedicated individuals from the chess community.
 
 * **Joe Stein:** President
 * **Alan Derk:** Vice President and Treasurer

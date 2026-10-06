@@ -1,0 +1,18 @@
+{{ with site.Params.donate }}
+<div class="mv4">
+  {{ if and .stripe_buy_button_id .stripe_publishable_key }}
+  <script async src="https://js.stripe.com/v3/buy-button.js"></script>
+  <stripe-buy-button
+    buy-button-id="{{ .stripe_buy_button_id }}"
+    publishable-key="{{ .stripe_publishable_key }}"
+  >
+  </stripe-buy-button>
+  {{/* Content blockers often block Stripe's script; keep a plain link. */}}
+  <p class="f6">Button not showing? <a href="{{ .stripe_payment_link }}">Donate on Stripe's secure page</a>.</p>
+  {{ else }}
+  <p>
+    <a href="{{ .stripe_payment_link }}" class="link dim br2 ph3 pv2 dib white bg-dark-purple">Donate securely with Stripe</a>
+  </p>
+  {{ end }}
+</div>
+{{ end }}
